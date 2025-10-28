@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HTML4 Layout - Copy Code</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 24px;
+    min-height: 170vh;
+  }
+
+  h1 {
+    border: 3px solid rgb(29,59,77);
+    padding: 10px 18px;
+    border-radius: 10px;
+    color: blueviolet;
+    margin: 0;
+  }
+
+  .row {
+    width: 90vw;
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .card {
+    position: relative;
+    flex: 1;
+    min-height: 35vh;
+    background: rgb(140,145,150);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 8px rgba(107,58,187,0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .toggle-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(45deg,#6a11cb,#2575fc);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 40;
+    box-shadow: 0 6px 18px rgba(37,117,252,0.18);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 30;
+  }
+  .card.open .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 320px;
+    max-width: 90%;
+    background: #111;
+    color: #fff;
+    transform: translateX(110%);
+    transition: transform 0.3s ease;
+    box-shadow: -20px 0 40px rgba(0,0,0,0.6);
+    z-index: 35;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .card.open .slide-panel {
+    transform: translateX(0);
+  }
+
+  pre {
+    background: #222;
+    color: #0f0;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  .copy-btn {
+    align-self: flex-end;
+    background: #6a11cb;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .copy-btn:hover {
+    background: #8b3fff;
+  }
+
+  @media (max-width:760px) {
+    .row { flex-direction: column; }
+    .slide-panel { width: 85%; }
+  }
+
+  .floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .btn-fixed {
+    background: blueviolet;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 0 20px #8450d8ad;
+    transition: all 0.3s ease;
+  }
+  .btn-fixed:hover {
+    background: #9b30ff;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+  <h1>HTML4</h1>
+
+  <!-- ✅ แถว 1 -->
+  <div class="row">
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องซ้าย</h3>
+      <p>Example 1 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code1">Copy</button>
+        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องขวา</h3>
+      <p>Example 1 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code2">Copy</button>
+        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ✅ แถว 2 -->
+  <div class="row">
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องซ้าย</h3>
+      <p>Example 2 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code3">Copy</button>
+        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องขวา</h3>
+      <p>Example 2 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code4">Copy</button>
+        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ✅ แถว 3 -->
+  <div class="row">
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องซ้าย</h3>
+      <p>Example 3 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code5">Copy</button>
+        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องขวา</h3>
+      <p>Example 3 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code6">Copy</button>
+        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ✅ แถว 4 -->
+  <div class="row">
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องซ้ายล่าง</h3>
+      <p>Example 4 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code7">Copy</button>
+        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องขวาล่าง</h3>
+      <p>Example 4 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code8">Copy</button>
+        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 🔹 ปุ่มลอย -->
+  <div class="floating-buttons">
+    <a href="page3.html"><button class="btn-fixed">Back</button></a>
+    <a href="page5.html"><button class="btn-fixed">Next</button></a>
+  </div>
+
+<script>
+  // ✅ เปิด/ปิด slide panel
+  document.querySelectorAll('.card').forEach(card => {
+    const toggle = card.querySelector('.toggle-btn');
+    const overlay = card.querySelector('.overlay');
+    const panel = card.querySelector('.slide-panel');
+
+    function openPanel() { card.classList.add('open'); }
+    function closePanel() { card.classList.remove('open'); }
+
+    toggle.addEventListener('click', () => {
+      card.classList.contains('open') ? closePanel() : openPanel();
+    });
+    overlay.addEventListener('click', closePanel);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && card.classList.contains('open')) closePanel();
+    });
+  });
+
+  // ✅ ปุ่ม Copy โค้ด
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const targetId = btn.getAttribute('data-target');
+      const code = document.getElementById(targetId).innerText;
+      try {
+        await navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied!';
+        btn.style.background = '#4CAF50';
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.style.background = '#6a11cb';
+        }, 1200);
+      } catch (err) {
+        alert('คัดลอกไม่สำเร็จ');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
