@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HTML2 Layout - Copy Code</title>
+<title>HTML9 Layout - Copy Code</title>
 <style>
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
@@ -57,7 +57,6 @@
     display: block;
     animation: fadeDown 0.3s ease-out;
   }
-
   body {
     font-family: Arial, sans-serif;
     background: #000;
@@ -216,23 +215,23 @@
 </head>
 <body>
 
-  <h1>HTML2</h1>
+  <h1>HTML9</h1>
 
   <div class="dropdown">
     <button class="dropbtn" onclick="toggleMenu()">Menu</button>
     <div class="dropdown-content" id="menuList">
       <a href="Codex.html">Main</a>
+      <a href="page2.html">2</a>
       <a href="page3.html">3</a>
       <a href="page4.html">4</a>
       <a href="page5.html">5</a>
       <a href="page6.html">6</a>
       <a href="page7.html">7</a>
       <a href="page8.html">8</a>
-      <a href="page9.html">9</a>
       <a href="page10.html">10</a>
     </div>
   </div>
-  
+  <!-- ✅ แถว 1 -->
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
@@ -259,6 +258,7 @@
     </div>
   </div>
 
+  <!-- ✅ แถว 2 -->
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
@@ -285,6 +285,7 @@
     </div>
   </div>
 
+  <!-- ✅ แถว 3 -->
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
@@ -311,6 +312,7 @@
     </div>
   </div>
 
+  <!-- ✅ แถว 4 -->
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
@@ -388,12 +390,14 @@
     </div>
   </div>
 
+  <!-- 🔹 ปุ่มลอย -->
   <div class="floating-buttons">
-    <a href="Codex.html"><button class="btn-fixed">Back</button></a>
-    <a href="page3.html"><button class="btn-fixed">Next</button></a>
+    <a href="page8.html"><button class="btn-fixed">Back</button></a>
+    <a href="page10.html"><button class="btn-fixed">Next</button></a>
   </div>
 
 <script>
+  // ✅ เปิด/ปิด slide panel
   document.querySelectorAll('.card').forEach(card => {
     const toggle = card.querySelector('.toggle-btn');
     const overlay = card.querySelector('.overlay');
@@ -410,6 +414,8 @@
       if (e.key === 'Escape' && card.classList.contains('open')) closePanel();
     });
   });
+
+  // ✅ ปุ่ม Copy โค้ด
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
       const targetId = btn.getAttribute('data-target');
@@ -435,5 +441,3 @@
 
 </body>
 </html>
-
-

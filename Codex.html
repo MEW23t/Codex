@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Layout - No Close Button</title>
+<title>Layout - Codex HTML</title>
 <style>
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
@@ -24,10 +24,7 @@
     border-radius: 6px;
     transition: background 0.3s;
   }
-
-  .dropbtn:hover {
-    background: #3216b1;
-  }
+  .dropbtn:hover { background: #3216b1; }
 
   .dropdown-content {
     display: none;
@@ -38,8 +35,8 @@
     border-radius: 8px;
     margin-top: 10px;
     overflow: hidden;
+    right: 0;
   }
-
   .dropdown-content a {
     color: white;
     padding: 12px 16px;
@@ -47,16 +44,8 @@
     display: block;
     transition: background 0.3s;
   }
-
-  .dropdown-content a:hover {
-    background-color: #333;
-  }
-
-  /* แอนิเมชัน fade ตอนเด้งลง */
-  .dropdown-content.show {
-    display: block;
-    animation: fadeDown 0.3s ease-out;
-  }
+  .dropdown-content a:hover { background-color: #333; }
+  .dropdown-content.show { display: block; animation: fadeDown 0.3s ease-out; }
 
   body {
     font-family: Arial, sans-serif;
@@ -67,7 +56,7 @@
     align-items: center;
     gap: 28px;
     padding: 24px;
-    min-height: 130vh;
+    min-height: 155vh;
   }
 
   h1 {
@@ -77,21 +66,35 @@
     color: blueviolet;
     margin: 0;
   }
+
   .hero-box {
     width: 75vw;
-    max-width: 1200px;
+    max-width: 1000px;
     min-height: 40vh;
     background: rgb(171,180,182);
     border-radius: 12px;
     padding: 28px;
-    box-shadow: 0 0 30px 14px #58368fad;
+    box-shadow: 0 0 30px 14px rgba(88,54,143,0.62);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #222;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     text-align: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-box h2 { margin: 0; color: #111; font-size: 2rem; font-weight: 800; }
+  .hero-box p {
+    margin: 0;
+    color: #111;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 1rem;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
   }
 
   .row {
@@ -101,21 +104,23 @@
     gap: 20px;
     justify-content: space-between;
   }
+
   .card {
     position: relative;
     flex: 1;
     min-height: 30vh;
     background: rgb(140,145,150);
     border-radius: 10px;
-    box-shadow: 0 0 20px 8px rgba#58368fad;
+    box-shadow: 0 0 20px 8px rgba(88,54,143,0.22);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #222;
+    color: #000000;
     padding: 20px;
     overflow: hidden;
   }
+
   .toggle-btn {
     position: absolute;
     top: 12px;
@@ -129,6 +134,7 @@
     z-index: 40;
     box-shadow: 0 6px 18px rgba(37,117,252,0.18);
   }
+
   .overlay {
     position: absolute;
     inset: 0;
@@ -138,10 +144,8 @@
     transition: opacity 0.25s;
     z-index: 30;
   }
-  .card.open .overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .card.open .overlay { opacity: 1; pointer-events: auto; }
+
   .slide-panel {
     position: absolute;
     top: 0;
@@ -160,9 +164,8 @@
     flex-direction: column;
     gap: 12px;
   }
-  .card.open .slide-panel {
-    transform: translateX(0);
-  }
+  .card.open .slide-panel { transform: translateX(0); }
+
   .copy-btn {
     align-self: flex-end;
     background: #6a11cb;
@@ -173,24 +176,18 @@
     cursor: pointer;
     transition: background 0.3s ease;
   }
-  .copy-btn:hover {
-    background: #8b3fff;
-  }
+  .copy-btn:hover { background: #8b3fff; }
+
   @keyframes fadeDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @media (max-width:760px) {
     .row { flex-direction: column; }
     .slide-panel { width: 85%; }
   }
+
   .btn-fixed {
     position: fixed;
     bottom: 20px;
@@ -202,91 +199,122 @@
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 0 20px rgba#4e2f80ad;
+    box-shadow: 0 0 20px rgba(78,47,128,0.43);
     transition: all 0.3s ease;
     z-index: 9999;
   }
-  .btn-fixed:hover {
-    background: #9b30ff;
-    transform: scale(1.05);
-  }
+  .btn-fixed:hover { background: #9b30ff; transform: scale(1.05); }
 </style>
 </head>
 <body>
   <h1>Codex-HTML</h1>
+
   <div class="dropdown">
-    <button class="dropbtn" onclick="toggleMenu()">Menu</button>
+    <button class="dropbtn" type="button" onclick="toggleMenu()">Menu</button>
     <div class="dropdown-content" id="menuList">
-      <a href="page2.html">HTML</a>
-      <a href="page3.html">CSS</a>
-      <a href="page4.html">JAVASCIPT</a>
+      <a href="page2.html">2</a>
+      <a href="page3.html">3</a>
+      <a href="page4.html">4</a>
+      <a href="page5.html">5</a>
+      <a href="page6.html">6</a>
+      <a href="page7.html">7</a>
+      <a href="page8.html">8</a>
+      <a href="page9.html">9</a>
+      <a href="page10.html">10</a>
     </div>
   </div>
-  <div class="hero-box">
-    Introduction
+
+  <div class="hero-box" id="hero">
+    <h2>Introduction</h2>
+    <p>ผมทำโปรเจกต์นี้ขึ้นมาเพราะอยากฝึกการเขียน HTML, CSS และ JavaScript ด้วยตัวเองครับ</p>
+    <p>รู้สึกว่าข้อมูลพื้นฐานที่หาได้ตามเว็บค่อนข้างน้อยและเข้าใจยากสำหรับคนเริ่มต้น จึงอยากรวมเนื้อหาและตัวอย่างโค้ดไว้ให้เข้าใจง่าย ๆ</p>
+    <p>หวังว่าจะช่วยให้คนที่เริ่มเรียนการเขียนเว็บเข้าใจได้เร็วขึ้น และเป็นการทบทวนความรู้ของผมเองด้วยครับ</p>
   </div>
+
   <div class="row">
     <div class="card">
-      <button class="toggle-btn">code</button>
+      <button class="toggle-btn" type="button">code</button>
       <h3>กล่องซ้าย</h3>
       <p>information-left</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
-        <div class="panel-head">
-          <strong>example-code</strong>
-        </div>
-        <div class="panel-body">
-          <p>code</p>
-        </div>
-      </aside>
-    </div>
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code2">Copy</button>
-        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-    <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 1 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code1">Copy</button>
         <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+        <button class="copy-btn" data-target="code1" type="button">Copy</button>
       </aside>
     </div>
 
     <div class="card">
-      <button class="toggle-btn">code</button>
+      <button class="toggle-btn" type="button">code</button>
       <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
+      <p>Example right</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code2">Copy</button>
         <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+        <button class="copy-btn" data-target="code2" type="button">Copy</button>
       </aside>
     </div>
   </div>
 
-  <a href="page2.html">
-  <button class="btn-fixed">Next</button>
-</a>
+  <div class="row">
+    <div class="card">
+      <button class="toggle-btn" type="button">code</button>
+      <h3>กล่องซ้าย</h3>
+      <p>Example 2 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+        <button class="copy-btn" data-target="code3" type="button">Copy</button>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn" type="button">code</button>
+      <h3>กล่องขวา</h3>
+      <p>Example 2 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
+        <button class="copy-btn" data-target="code4" type="button">Copy</button>
+      </aside>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <button class="toggle-btn" type="button">code</button>
+      <h3>กล่องซ้าย</h3>
+      <p>Example 3 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
+        <button class="copy-btn" data-target="code5" type="button">Copy</button>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn" type="button">code</button>
+      <h3>กล่องขวา</h3>
+      <p>Example 3 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
+        <button class="copy-btn" data-target="code6" type="button">Copy</button>
+      </aside>
+    </div>
+  </div>
+
+  <a href="page2.html"><button class="btn-fixed" type="button">Next</button></a>
 
 <script>
-  // toggle slide panel
+
   document.querySelectorAll('.card').forEach(card => {
     const toggle = card.querySelector('.toggle-btn');
-    const panel = card.querySelector('.slide-panel');
     const overlay = card.querySelector('.overlay');
 
     function openPanel() { card.classList.add('open'); }
@@ -300,10 +328,58 @@
       if (e.key === 'Escape' && card.classList.contains('open')) closePanel();
     });
   });
+
+
   function toggleMenu() {
-      document.getElementById("menuList").classList.toggle("show");
+    const menu = document.getElementById('menuList');
+    if (!menu) return;
+    menu.classList.toggle('show');
+  }
+
+
+  document.addEventListener('click', async (event) => {
+    const btn = event.target.closest('.copy-btn');
+    if (!btn) return;
+
+    const targetId = btn.getAttribute('data-target');
+    const codeEl = document.getElementById(targetId);
+    if (!codeEl) {
+      alert('ไม่พบโค้ดที่จะคัดลอก');
+      return;
     }
+    const text = codeEl.innerText;
+
+
+    try {
+      await navigator.clipboard.writeText(text);
+      const original = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 1200);
+      return;
+    } catch (err) {
+    }
+
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+
+      const original = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.style.background = '#4CAF50';
+      setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 1200);
+    } catch (e) {
+      alert('คัดลอกไม่สำเร็จ — ลองเปิดบนเบราว์เซอร์ที่รองรับหรือผ่าน https/localhost');
+    }
+  });
 </script>
 
 </body>
 </html>
+

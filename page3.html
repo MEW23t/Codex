@@ -7,7 +7,56 @@
 <style>
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
+    .dropdown {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+  }
 
+  .dropbtn {
+    background: #6234b8;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+
+  .dropbtn:hover {
+    background: #3216b1;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #333;
+  }
+
+  /* แอนิเมชัน fade ตอนเด้งลง */
+  .dropdown-content.show {
+    display: block;
+    animation: fadeDown 0.3s ease-out;
+  }
   body {
     font-family: Arial, sans-serif;
     background: #000;
@@ -17,7 +66,7 @@
     align-items: center;
     gap: 28px;
     padding: 24px;
-    min-height: 170vh;
+    min-height: 180vh;
   }
 
   h1 {
@@ -39,7 +88,7 @@
   .card {
     position: relative;
     flex: 1;
-    min-height: 35vh;
+    min-height: 25vh;
     background: rgb(140,145,150);
     border-radius: 10px;
     box-shadow: 0 0 20px 8px rgba(107,58,187,0.35);
@@ -123,7 +172,16 @@
   .copy-btn:hover {
     background: #8b3fff;
   }
-
+    @keyframes fadeDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   @media (max-width:760px) {
     .row { flex-direction: column; }
     .slide-panel { width: 85%; }
@@ -157,8 +215,22 @@
 </head>
 <body>
 
-  <h1>HTML4</h1>
+  <h1>HTML3</h1>
 
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleMenu()">Menu</button>
+    <div class="dropdown-content" id="menuList">
+      <a href="Codex.html">Main</a>
+      <a href="page2.html">2</a>
+      <a href="page4.html">4</a>
+      <a href="page5.html">5</a>
+      <a href="page6.html">6</a>
+      <a href="page7.html">7</a>
+      <a href="page8.html">8</a>
+      <a href="page9.html">9</a>
+      <a href="page10.html">10</a>
+    </div>
+  </div>
   <!-- ✅ แถว 1 -->
   <div class="row">
     <div class="card">
@@ -266,6 +338,57 @@
       </aside>
     </div>
   </div>
+    <div class="row">
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องซ้ายล่าง</h3>
+      <p>Example 4 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code7">Copy</button>
+        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องขวาล่าง</h3>
+      <p>Example 4 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code8">Copy</button>
+        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+      </aside>
+    </div>
+  </div>
+    </div>
+    <div class="row">
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องซ้ายล่าง</h3>
+      <p>Example 4 Left</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code7">Copy</button>
+        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
+      </aside>
+    </div>
+
+    <div class="card">
+      <button class="toggle-btn">code</button>
+      <h3>กล่องขวาล่าง</h3>
+      <p>Example 4 Right</p>
+      <div class="overlay"></div>
+      <aside class="slide-panel">
+        <div class="panel-head"><strong>example-code</strong></div>
+        <button class="copy-btn" data-target="code8">Copy</button>
+        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+      </aside>
+    </div>
+  </div>
 
   <!-- 🔹 ปุ่มลอย -->
   <div class="floating-buttons">
@@ -310,6 +433,10 @@
       }
     });
   });
+  function toggleMenu() {
+  document.getElementById("menuList").classList.toggle("show");
+}
+
 </script>
 
 </body>
