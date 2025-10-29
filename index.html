@@ -3,17 +3,37 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Layout - Codex HTML</title>
+<title>Layout - Codex HTML (แก้ไข)</title>
 <style>
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 24px;
+    min-height: 100vh; /* ปรับเป็น 100vh ให้สมเหตุสมผล */
+  }
+
+  h1 {
+    border: 3px solid rgb(29,59,77);
+    padding: 10px 18px;
+    border-radius: 10px;
+    color: blueviolet;
+    margin: 0;
+  }
+
+  /* Dropdown (top-right) */
   .dropdown {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 999;
   }
-
   .dropbtn {
     background: #6234b8;
     color: white;
@@ -25,6 +45,7 @@
     transition: background 0.3s;
   }
   .dropbtn:hover { background: #3216b1; }
+  .dropbtn:focus { outline: 3px solid rgba(98,52,184,0.35); }
 
   .dropdown-content {
     display: none;
@@ -42,35 +63,20 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    transition: background 0.3s;
+    transition: background 0.15s;
   }
   .dropdown-content a:hover { background-color: #333; }
-  .dropdown-content.show { display: block; animation: fadeDown 0.3s ease-out; }
+  .dropdown-content.show { display: block; animation: fadeDown 0.22s ease-out; }
 
-  body {
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding: 24px;
-    min-height: 155vh;
-  }
-
-  h1 {
-    border: 3px solid rgb(29,59,77);
-    padding: 10px 18px;
-    border-radius: 10px;
-    color: blueviolet;
-    margin: 0;
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .hero-box {
     width: 75vw;
     max-width: 1000px;
-    min-height: 40vh;
+    min-height: 30vh;
     background: rgb(171,180,182);
     border-radius: 12px;
     padding: 28px;
@@ -80,22 +86,13 @@
     justify-content: center;
     color: #222;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     text-align: center;
     flex-direction: column;
     gap: 12px;
   }
-  .hero-box h2 { margin: 0; color: #111; font-size: 2rem; font-weight: 800; }
-  .hero-box p {
-    margin: 0;
-    color: #111;
-    font-weight: 600;
-    line-height: 1.5;
-    font-size: 1rem;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-  }
+  .hero-box h2 { margin: 0; color: #111; font-size: 1.8rem; font-weight: 800; }
+  .hero-box p { margin: 0; color: #111; font-weight: 600; line-height: 1.45; font-size: 1rem; }
 
   .row {
     width: 90vw;
@@ -114,8 +111,8 @@
     box-shadow: 0 0 20px 8px rgba(88,54,143,0.22);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     color: #000000;
     padding: 20px;
     overflow: hidden;
@@ -134,6 +131,7 @@
     z-index: 40;
     box-shadow: 0 6px 18px rgba(37,117,252,0.18);
   }
+  .toggle-btn:focus { outline: 3px solid rgba(122, 81, 255, 0.25); }
 
   .overlay {
     position: absolute;
@@ -156,15 +154,27 @@
     background: #111;
     color: #fff;
     transform: translateX(110%);
-    transition: transform 0.3s ease;
+    transition: transform 0.28s ease;
     box-shadow: -20px 0 40px rgba(0,0,0,0.6);
     z-index: 35;
     padding: 18px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    outline: none;
   }
   .card.open .slide-panel { transform: translateX(0); }
+
+  .panel-head { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  .panel-close {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .panel-close:focus { outline: 3px solid rgba(255,255,255,0.08); }
 
   .copy-btn {
     align-self: flex-end;
@@ -174,18 +184,23 @@
     padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
   }
   .copy-btn:hover { background: #8b3fff; }
+  .copy-btn.copied { background: #4CAF50 !important; }
 
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width:760px) {
-    .row { flex-direction: column; }
-    .slide-panel { width: 85%; }
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #0b0b0b;
+    color: #e6e6e6;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+    font-size: 0.9rem;
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
   }
 
   .btn-fixed {
@@ -203,24 +218,31 @@
     transition: all 0.3s ease;
     z-index: 9999;
   }
-  .btn-fixed:hover { background: #9b30ff; transform: scale(1.05); }
+  .btn-fixed:hover { background: #9b30ff; transform: scale(1.03); }
+
+  @media (max-width:760px) {
+    .row { flex-direction: column; }
+    .slide-panel { width: 85%; }
+    .hero-box { width: 94vw; padding: 20px; }
+  }
 </style>
 </head>
 <body>
   <h1>Codex-HTML</h1>
 
-  <div class="dropdown">
-    <button class="dropbtn" type="button" onclick="toggleMenu()">Menu</button>
-    <div class="dropdown-content" id="menuList">
-      <a href="page2.html">2</a>
-      <a href="page3.html">3</a>
-      <a href="page4.html">4</a>
-      <a href="page5.html">5</a>
-      <a href="page6.html">6</a>
-      <a href="page7.html">7</a>
-      <a href="page8.html">8</a>
-      <a href="page9.html">9</a>
-      <a href="page10.html">10</a>
+  <!-- Dropdown Menu (fixed) -->
+  <div class="dropdown" aria-haspopup="true">
+    <button class="dropbtn" id="menuBtn" aria-expanded="false" aria-controls="menuList" type="button" onclick="toggleMenu()">Menu</button>
+    <div class="dropdown-content" id="menuList" role="menu" aria-hidden="true">
+      <a href="page2.html" role="menuitem">2</a>
+      <a href="page3.html" role="menuitem">3</a>
+      <a href="page4.html" role="menuitem">4</a>
+      <a href="page5.html" role="menuitem">5</a>
+      <a href="page6.html" role="menuitem">6</a>
+      <a href="page7.html" role="menuitem">7</a>
+      <a href="page8.html" role="menuitem">8</a>
+      <a href="page9.html" role="menuitem">9</a>
+      <a href="page10.html" role="menuitem">10</a>
     </div>
   </div>
 
@@ -231,133 +253,243 @@
     <p>หวังว่าจะช่วยให้คนที่เริ่มเรียนการเขียนเว็บเข้าใจได้เร็วขึ้น และเป็นการทบทวนความรู้ของผมเองด้วยครับ</p>
   </div>
 
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn" type="button">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>information-left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
-        <button class="copy-btn" data-target="code1" type="button">Copy</button>
+  <!-- Row 1 -->
+  <div class="row" role="list">
+    <div class="card" role="listitem">
+      <button class="toggle-btn" type="button" aria-expanded="false">code</button>
+      <h3>ส่วนประกอบหลัก</h3>
+      <p>&lt;!DOCTYPE html&gt; : ประกาศว่าเป็น HTML5</p>
+      <p>&lt;html lang="th"&gt; : บอกว่าเนื้อหาเป็นภาษาไทย</p>
+      <p>&lt;head&gt; : ใส่ข้อมูลเกี่ยวกับหน้า (meta, title, link)</p>
+      <p>&lt;body&gt; : ส่วนที่แสดงผลให้ผู้ใช้เห็น</p>
+
+      <div class="overlay" tabindex="-1" aria-hidden="true"></div>
+      <aside class="slide-panel" tabindex="-1" aria-hidden="true">
+        <div class="panel-head">
+          <strong>example-code</strong>
+          <button class="panel-close" type="button" aria-label="Close panel">ปิด</button>
+        </div>
+
+        <button class="copy-btn" type="button">Copy</button>
+        <pre><code class="code-snippet">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="th"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;ตัวอย่าง&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;สวัสดี&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
       </aside>
     </div>
 
-    <div class="card">
-      <button class="toggle-btn" type="button">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
-        <button class="copy-btn" data-target="code2" type="button">Copy</button>
-      </aside>
-    </div>
-  </div>
+    <div class="card" role="listitem">
+      <button class="toggle-btn" type="button" aria-expanded="false">code</button>
+      <h3>แท็กเชิงความหมาย</h3>
+      <p>&lt;header&gt; : ส่วนหัวของเว็บ เช่น โลโก้ และเมนู</p>
+      <p>&lt;nav&gt; : แถบเมนูนำทาง</p>
+      <p>&lt;main&gt; : เนื้อหาหลักของหน้า</p>
+      <p>&lt;section&gt; : แบ่งเนื้อหาเป็นส่วนๆ</p>
+      <p>&lt;article&gt; : บทความหรือเนื้อหาที่แยกได้</p>
+      <p>&lt;aside&gt; : เนื้อหาข้าง ๆ เช่น แถบด้านข้าง</p>
+      <p>&lt;footer&gt; : ส่วนท้าย เช่น ที่อยู่ ลิขสิทธิ์</p>
 
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn" type="button">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 2 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
-        <button class="copy-btn" data-target="code3" type="button">Copy</button>
-      </aside>
-    </div>
+      <div class="overlay" tabindex="-1" aria-hidden="true"></div>
+      <aside class="slide-panel" tabindex="-1" aria-hidden="true">
+        <div class="panel-head">
+          <strong>example-code</strong>
+          <button class="panel-close" type="button" aria-label="Close panel">ปิด</button>
+        </div>
 
-    <div class="card">
-      <button class="toggle-btn" type="button">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 2 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
-        <button class="copy-btn" data-target="code4" type="button">Copy</button>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn" type="button">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 3 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
-        <button class="copy-btn" data-target="code5" type="button">Copy</button>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn" type="button">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 3 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
-        <button class="copy-btn" data-target="code6" type="button">Copy</button>
+        <button class="copy-btn" type="button">Copy</button>
+        <pre><code class="code-snippet">
+&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;section&gt;...&lt;/section&gt;
+&lt;article&gt;...&lt;/article&gt;
+&lt;aside&gt;...&lt;/aside&gt;
+&lt;footer&gt;...&lt;/footer&gt;
+        </code></pre>
       </aside>
     </div>
   </div>
 
-  <a href="page2.html"><button class="btn-fixed" type="button">Next</button></a>
+  <!-- Row 2 -->
+  <div class="row" role="list">
+    <div class="card" role="listitem">
+      <button class="toggle-btn" type="button" aria-expanded="false">code</button>
+      <h3>รายการ</h3>
+      <p>&lt;ul&gt; : รายการมีจุด (unordered list)</p>
+      <p>&lt;ol&gt; : รายการมีตัวเลข (ordered list)</p>
+      <p>&lt;li&gt; : รายการแต่ละข้อ</p>
+
+      <div class="overlay" tabindex="-1" aria-hidden="true"></div>
+      <aside class="slide-panel" tabindex="-1" aria-hidden="true">
+        <div class="panel-head">
+          <strong>example-code</strong>
+          <button class="panel-close" type="button" aria-label="Close panel">ปิด</button>
+        </div>
+
+        <button class="copy-btn" type="button">Copy</button>
+        <pre><code class="code-snippet">
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+      </aside>
+    </div>
+
+    <div class="card" role="listitem">
+      <button class="toggle-btn" type="button" aria-expanded="false">code</button>
+      <h3>ข้อความ</h3>
+      <p>&lt;h1&gt;-&lt;h6&gt; : หัวข้อใหญ่→เล็ก</p>
+      <p>&lt;p&gt; : ย่อหน้า</p>
+      <p>&lt;br&gt; : ขึ้นบรรทัดใหม่ (self-closing)</p>
+      <p>&lt;strong&gt; : ตัวหนา (เน้นความสำคัญ)</p>
+      <p>&lt;em&gt; : ตัวเอียง (เน้น)</p>
+      <p>&lt;span&gt; : ครอบข้อความสั้น ๆ เพื่อใส่สไตล์</p>
+      <p>&lt;div&gt; : กล่องรวมเนื้อหา</p>
+
+      <div class="overlay" tabindex="-1" aria-hidden="true"></div>
+      <aside class="slide-panel" tabindex="-1" aria-hidden="true">
+        <div class="panel-head">
+          <strong>example-code</strong>
+          <button class="panel-close" type="button" aria-label="Close panel">ปิด</button>
+        </div>
+
+        <button class="copy-btn" type="button">Copy</button>
+        <pre><code class="code-snippet">
+&lt;h1&gt;หัวข้อหลัก&lt;/h1&gt;
+&lt;p&gt;ย่อหน้านี้เป็นตัวอย่าง&lt;/p&gt;
+&lt;br&gt;
+&lt;strong&gt;เน้นข้อความ&lt;/strong&gt;
+&lt;em&gt;เน้นด้วยตัวเอียง&lt;/em&gt;
+&lt;span&gt;ข้อความสั้นๆ&lt;/span&gt;
+&lt;div&gt;ส่วนกล่องแบ่งเนื้อหา&lt;/div&gt;
+        </code></pre>
+      </aside>
+    </div>
+  </div>
+
+  <a href="page2.html"><button class="btn-fixed" type="button" aria-label="Next page">Next</button></a>
 
 <script>
-
+  // --- Card open/close logic with accessibility updates ---
   document.querySelectorAll('.card').forEach(card => {
     const toggle = card.querySelector('.toggle-btn');
     const overlay = card.querySelector('.overlay');
+    const panel = card.querySelector('.slide-panel');
+    const closeBtn = card.querySelector('.panel-close');
 
-    function openPanel() { card.classList.add('open'); }
-    function closePanel() { card.classList.remove('open'); }
+    if (!toggle || !panel) return;
+
+    function openPanel() {
+      card.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      panel.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      // focus the close button for keyboard users
+      if (closeBtn) closeBtn.focus();
+    }
+    function closePanel() {
+      card.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      // return focus to toggle button for accessibility
+      toggle.focus();
+    }
 
     toggle.addEventListener('click', () => {
       card.classList.contains('open') ? closePanel() : openPanel();
     });
     overlay.addEventListener('click', closePanel);
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && card.classList.contains('open')) closePanel();
     });
   });
 
-
+  // --- Dropdown: toggle and close when clicking outside or Escape ---
   function toggleMenu() {
     const menu = document.getElementById('menuList');
-    if (!menu) return;
-    menu.classList.toggle('show');
+    const btn = document.getElementById('menuBtn');
+    if (!menu || !btn) return;
+    const isOpen = menu.classList.toggle('show');
+    menu.setAttribute('aria-hidden', (!isOpen).toString());
+    btn.setAttribute('aria-expanded', isOpen.toString());
+    if (isOpen) {
+      // focus first link in menu for keyboard users
+      const first = menu.querySelector('a');
+      if (first) first.focus();
+    } else {
+      btn.focus();
+    }
   }
 
+  // close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('menuList');
+    const btn = document.getElementById('menuBtn');
+    if (!menu || !btn) return;
+    if (btn.contains(e.target)) return; // clicking the button handled elsewhere
+    if (!menu.contains(e.target)) {
+      if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        menu.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
 
+  // close dropdown on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const menu = document.getElementById('menuList');
+      const btn = document.getElementById('menuBtn');
+      if (!menu || !btn) return;
+      if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        menu.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    }
+  });
+
+  // --- Copy button: delegation, find .code-snippet within same panel ---
   document.addEventListener('click', async (event) => {
     const btn = event.target.closest('.copy-btn');
     if (!btn) return;
 
-    const targetId = btn.getAttribute('data-target');
-    const codeEl = document.getElementById(targetId);
+    // find nearest panel container
+    const panel = btn.closest('.slide-panel');
+    if (!panel) {
+      alert('ไม่พบโค้ดที่จะคัดลอก');
+      return;
+    }
+    const codeEl = panel.querySelector('.code-snippet');
     if (!codeEl) {
       alert('ไม่พบโค้ดที่จะคัดลอก');
       return;
     }
-    const text = codeEl.innerText;
+    const text = codeEl.innerText.trim();
 
-
+    // try clipboard API
     try {
       await navigator.clipboard.writeText(text);
-      const original = btn.textContent;
-      btn.textContent = 'Copied!';
-      btn.style.background = '#4CAF50';
-      setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 1200);
+      showCopiedState(btn);
       return;
     } catch (err) {
+      // fallback to textarea method
     }
 
     try {
@@ -365,19 +497,23 @@
       ta.value = text;
       ta.style.position = 'fixed';
       ta.style.left = '-9999px';
+      ta.setAttribute('aria-hidden', 'true');
       document.body.appendChild(ta);
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-
-      const original = btn.textContent;
-      btn.textContent = 'Copied!';
-      btn.style.background = '#4CAF50';
-      setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 1200);
+      showCopiedState(btn);
     } catch (e) {
       alert('คัดลอกไม่สำเร็จ — ลองเปิดบนเบราว์เซอร์ที่รองรับหรือผ่าน https/localhost');
     }
   });
+
+  function showCopiedState(button) {
+    const original = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+    setTimeout(() => { button.textContent = original; button.classList.remove('copied'); }, 1200);
+  }
 </script>
 
 </body>

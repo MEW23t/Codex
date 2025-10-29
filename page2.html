@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HTML2 Layout - Copy Code</title>
+<title>HTML3 Layout - Copy Code</title>
 <style>
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
@@ -52,12 +52,10 @@
     background-color: #333;
   }
 
-  /* แอนิเมชัน fade ตอนเด้งลง */
   .dropdown-content.show {
     display: block;
     animation: fadeDown 0.3s ease-out;
   }
-
   body {
     font-family: Arial, sans-serif;
     background: #000;
@@ -67,7 +65,7 @@
     align-items: center;
     gap: 28px;
     padding: 24px;
-    min-height: 180vh;
+    min-height: 80vh;
   }
 
   h1 {
@@ -95,8 +93,8 @@
     box-shadow: 0 0 20px 8px rgba(107,58,187,0.35);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     color: #222;
     padding: 20px;
     overflow: hidden;
@@ -216,7 +214,7 @@
 </head>
 <body>
 
-  <h1>HTML2</h1>
+  <h1>HTML/</h1>
 
   <div class="dropdown">
     <button class="dropbtn" onclick="toggleMenu()">Menu</button>
@@ -232,29 +230,41 @@
       <a href="page10.html">10</a>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 1 Left</p>
+      <h3>Forms</h3>
+      <p>ใช้รับข้อมูลจากผู้ใช้ เช่น ชื่อ, อีเมล, รหัสผ่าน</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code1">Copy</button>
-        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+        <pre><code id="code1">
+          &lt;form action="/send" method="post"&gt;
+          &lt;label&gt; ชื่อ: &lt;input type="text" name="name"&gt;&lt;/label&gt;
+          &lt;input type="submit" value="ส่ง"&gt;
+          &lt;/form&gt;
+        </code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
+      <h3>input</h3>
+      <p>ชนิดของ input ที่ใช้บ่อย</p>
+      <p>text email password checkbox/radio file submit</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code2">Copy</button>
-        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+        <pre><code id="code2">
+          &lt;text&gt; &lt;/text&gt;
+          &lt;email&gt; &lt;/email&gt;
+          &lt;password&gt; &lt;/password&gt;
+          &lt;checkbox&gt; &lt;/checkbox&gt;
+          &lt;file&gt; &lt;/file&gt;
+          &lt;submit&gt; &lt;/submit&gt;
       </aside>
     </div>
   </div>
@@ -262,128 +272,35 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 2 Left</p>
+      <h3>Media</h3>
+      <p>ใช้ใส่รูป วิดีโอ เสียง</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code3">Copy</button>
-        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+        <pre><code id="code3">
+          &lt;img src="..." alt="..."&gt; &lt;/img src="..." alt="..."&gt;
+          &lt;video controls&gt; &lt;/video controls&gt;
+          &lt;audio controls&gt; &lt;/audio controls&gt;
+          &lt;figure> + figcaption&gt; &lt;/figure> + figcaption&gt;
+        </code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 2 Right</p>
+      <h3>Links & Navigation</h3>
+      <p>a:ใช้สร้างลิงก์</p>
+      <p>target="_blank":เปิดลิงก์ในแท็บใหม่</p>
+      <p>id="section1":ใช้เชื่อมกับลิงก์ภายในหน้า</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code4">Copy</button>
-        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 3 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code5">Copy</button>
-        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 3 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code6">Copy</button>
-        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-    <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-    </div>
-    <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+        <pre><code id="code4">
+          &lt;a href="https://example.com"&gt;ไปเว็บไซต์&lt;/a&gt;
+          &lt;a href="#section1"&gt;เลื่อนไปยังหัวข้อในหน้า&lt;/a&gt;
+        </code></pre>
       </aside>
     </div>
   </div>
@@ -394,6 +311,7 @@
   </div>
 
 <script>
+
   document.querySelectorAll('.card').forEach(card => {
     const toggle = card.querySelector('.toggle-btn');
     const overlay = card.querySelector('.overlay');
@@ -410,6 +328,7 @@
       if (e.key === 'Escape' && card.classList.contains('open')) closePanel();
     });
   });
+
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
       const targetId = btn.getAttribute('data-target');
