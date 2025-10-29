@@ -233,25 +233,38 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 1 Left</p>
+      <h3>Advanced: Filter, Blend, Shadow, Gradient</h3>
+      <p>เพิ่มลูกเล่นให้เว็บสวยแบบมืออาชีพ</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code1">Copy</button>
-        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+        <pre><code id="code1">
+          img {
+            filter: brightness(80%) blur(2px);
+          }
+          div {
+            background: linear-gradient(45deg, blue, purple);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+          }
+</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
+      <h3>Custom Fonts & Icons</h3>
+      <p>ใช้ฟอนต์สวย ๆ หรือไอคอนจากภายนอก</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code2">Copy</button>
-        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+        <pre><code id="code2">
+          <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+          body {
+            font-family: 'Kanit', sans-serif;
+          }
+</code></pre>
       </aside>
     </div>
   </div>
@@ -259,77 +272,38 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 2 Left</p>
+      <h3>Dark Mode / Theme Switch</h3>
+      <p>ใช้ CSS สร้างธีมสลับได้ง่าย</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code3">Copy</button>
-        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+        <pre><code id="code3">
+          body[data-theme="dark"] {
+            background: #000;
+            color: white;
+          }
+          body[data-theme="light"] {
+            background: white;
+            color: black;
+          }
+</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 2 Right</p>
+      <h3>สิ่งที่ใช้บ่อยในงานจริง</h3>
+      <p>Layout flex, grid, position: fixed</p>
+      <p>ปุ่ม :hover, transition, border-radius</p>
+      <p>การ์ด box-shadow, padding, gap</p>
+      <p>รูปภาพ object-fit: cover, border-radius</p>
+      <p>Responsive @media (max-width: …)</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code4">Copy</button>
         <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 3 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code5">Copy</button>
-        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 3 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code6">Copy</button>
-        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
       </aside>
     </div>
   </div>

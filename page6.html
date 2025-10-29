@@ -234,20 +234,27 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 1 Left</p>
+      <h3>เงา & เอฟเฟกต์</h3>
+      <p>การลงเช่นboxs font</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code1">Copy</button>
-        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+        <pre><code id="code1">
+          box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+          text-shadow: 1px 1px 2px black;
+</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
+      <h3>Position</h3>
+      <p>static ปกติ (ค่าเริ่มต้น)</p>
+      <p>relative ขยับจากตำแหน่งเดิม</p>
+      <p>absolute ลอยอิสระใน container</p>
+      <p>fixed ลอยติดหน้าจอ (เช่นปุ่ม “กลับขึ้นบน”)</p>
+      <p>sticky ติดขอบเมื่อ scroll ถึงจุดหนึ่ง</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
@@ -260,77 +267,39 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 2 Left</p>
+      <h3>Responsive Design</h3>
+      <p>(แสดงผลหลายขนาดหน้าจอ) ทำให้เว็บดูดีทั้งในคอม มือถือ และแท็บเล็ต</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code3">Copy</button>
-        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+        <pre><code id="code3">
+          @media (max-width: 768px) {
+            .container {
+              flex-direction: column;
+            }
+          }
+</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 2 Right</p>
+      <h3>Transition / Animation</h3>
+      <p>(เอฟเฟกต์เคลื่อนไหว) ทำให้ปุ่มหรือกล่อง “นุ่มนวล” ตอนเปลี่ยนสถานะ</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code4">Copy</button>
-        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 3 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code5">Copy</button>
-        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 3 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code6">Copy</button>
-        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+        <pre><code id="code4">
+          button {
+            background: blue;
+            transition: background 0.3s;
+          }
+          button:hover {
+            background: purple;
+          }
+</code></pre>
       </aside>
     </div>
   </div>

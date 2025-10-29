@@ -234,25 +234,31 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 1 Left</p>
+      <h3>Border / Background</h3>
+      <p>ขอบและพื้นหลัง</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code1">Copy</button>
-        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+        <pre><code id="code1">
+          border: 2px solid red;
+          border-radius: 8px; /* ทำมุมโค้ง */
+          background: linear-gradient(45deg, blue, purple);</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
+      <h3>Spacing</h3>
+      <p>ระยะห่าง</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code2">Copy</button>
-        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+        <pre><code id="code2">
+          margin: 20px;   /* ระยะรอบนอกกล่อง */
+          padding: 10px; /* ระยะด้านในกล่อง */
+</code></pre>
       </aside>
     </div>
   </div>
@@ -260,77 +266,38 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 2 Left</p>
+      <h3>Layout</h3>
+      <p>CSS มีหลายวิธีจัด layout เช่น Flexbox, Grid, Position</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code3">Copy</button>
-        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+        <pre><code id="code3">
+          .container {
+            display: flex;
+            justify-content: center; /* จัดแนวนอน */
+            align-items: center;     /* จัดแนวตั้ง */
+            gap: 10px;
+          }
+        </code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
+      <h3>Grid</h3>
       <p>Example 2 Right</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code4">Copy</button>
-        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 3 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code5">Copy</button>
-        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 3 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code6">Copy</button>
-        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+        <pre><code id="code4">
+          .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+          }
+</code></pre>
       </aside>
     </div>
   </div>

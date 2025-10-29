@@ -234,25 +234,42 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 1 Left</p>
+      <h3>Animation</h3>
+      <p>(เคลื่อนไหวต่อเนื่อง)</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code1">Copy</button>
-        <pre><code id="code1">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+        <pre><code id="code1">
+          @keyframes moveRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+.box {
+  animation: moveRight 2s infinite alternate;
+}
+</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 1 Right</p>
+      <h3>Pseudo-classes / Pseudo-elements</h3>
+      <p>:hover ตอนเอาเมาส์วาง</p>
+      <p>:active ตอนคลิก</p>
+      <p>:focus ตอนกำลังพิมพ์</p>
+      <p>::before แทรกเนื้อหาก่อน element</p>
+      <p>::after แทรกเนื้อหาหลัง element</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code2">Copy</button>
-        <pre><code id="code2">&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+        <pre><code id="code2">
+          button::after{
+            content: "...";
+            margin-left: 8px;
+          }
+</code></pre>
       </aside>
     </div>
   </div>
@@ -260,77 +277,38 @@
   <div class="row">
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 2 Left</p>
+      <h3>Transform</h3>
+      <p>(หมุน / ขยาย / เอียง) ใช้เปลี่ยนรูปร่างของ element</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code3">Copy</button>
-        <pre><code id="code3">&lt;div class="box"&gt;Box content&lt;/div&gt;</code></pre>
+        <pre><code id="code3">
+          .box:hover {
+            transform: scale(1.2) rotate(10deg);
+          }
+</code></pre>
       </aside>
     </div>
 
     <div class="card">
       <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 2 Right</p>
+      <h3>Variables</h3>
+      <p>(ตัวแปร CSS) ช่วยเก็บค่าสี/ขนาดไว้ใช้ซ้ำ</p>
       <div class="overlay"></div>
       <aside class="slide-panel">
         <div class="panel-head"><strong>example-code</strong></div>
         <button class="copy-btn" data-target="code4">Copy</button>
-        <pre><code id="code4">&lt;img src="cat.jpg" alt="Cat"&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้าย</h3>
-      <p>Example 3 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code5">Copy</button>
-        <pre><code id="code5">&lt;a href="page.html"&gt;Go to Page&lt;/a&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวา</h3>
-      <p>Example 3 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code6">Copy</button>
-        <pre><code id="code6">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code></pre>
-      </aside>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องซ้ายล่าง</h3>
-      <p>Example 4 Left</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code7">Copy</button>
-        <pre><code id="code7">&lt;button&gt;Click me&lt;/button&gt;</code></pre>
-      </aside>
-    </div>
-
-    <div class="card">
-      <button class="toggle-btn">code</button>
-      <h3>กล่องขวาล่าง</h3>
-      <p>Example 4 Right</p>
-      <div class="overlay"></div>
-      <aside class="slide-panel">
-        <div class="panel-head"><strong>example-code</strong></div>
-        <button class="copy-btn" data-target="code8">Copy</button>
-        <pre><code id="code8">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+        <pre><code id="code4">
+          :root {
+            --main-color: #6a11cb;
+            --text-color: white;
+          }
+          button {
+            background: var(--main-color);
+            color: var(--text-color);
+          }
+</code></pre>
       </aside>
     </div>
   </div>
