@@ -20,7 +20,7 @@
   }
 
   h1 {
-    border: 3px solid rgb(29,59,77);
+    border: 3px solid rgb(29,58,77);
     padding: 10px 18px;
     border-radius: 10px;
     color: blueviolet;
@@ -32,27 +32,26 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 999;
   }
   .dropbtn {
     background: #6234b8;
     color: white;
-    padding: 12px 20px;
+    padding: 10px 20px;
     font-size: 18px;
     border: none;
     cursor: pointer;
     border-radius: 6px;
-    transition: background 0.3s;
+    transition: background 0.5s;
   }
   .dropbtn:hover { background: #3416b1; }
-  .dropbtn:focus { outline: 3px solid rgba(98,52,184,0.35); }
+  .dropbtn:focus { outline: 3px solid rgba(97,52,184,0); }
 
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #000;
     min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0);
+    box-shadow: 0px 7px 16px rgba(0,0,0,0);
     border-radius: 8px;
     margin-top: 10px;
     overflow: hidden;
@@ -66,7 +65,7 @@
     transition: background 0.15s;
   }
   .dropdown-content a:hover { background-color: #000; }
-  .dropdown-content.show { display: block; animation: fadeDown 0.22s ease-out; }
+  .dropdown-content.show { display: block; animation: fadeDown 0.3s ease-out; }
 
   @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-8px); }
@@ -80,13 +79,13 @@
     background: rgb(171,180,182);
     border-radius: 12px;
     padding: 28px;
-    box-shadow: 0 0 30px 14px rgba(88,54,143,0.62);
+    box-shadow: 0 0 30px 14px rgba(88,54,143,0);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #000;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 2rem;
     text-align: center;
     flex-direction: column;
     gap: 12px;
@@ -108,7 +107,7 @@
     min-height: 30vh;
     background: rgb(140,145,150);
     border-radius: 10px;
-    box-shadow: 0 0 20px 8px rgba(88,54,143,0.22);
+    box-shadow: 0 0 20px 8px rgba(88,54,143,0);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -129,9 +128,9 @@
     border-radius: 8px;
     cursor: pointer;
     z-index: 40;
-    box-shadow: 0 6px 18px rgba(37,117,252,0.18);
+    box-shadow: 0 6px 18px rgba(37,117,252,0);
   }
-  .toggle-btn:focus { outline: 3px solid rgba(122, 81, 255, 0.25); }
+  .toggle-btn:focus { outline: 3px solid rgba(122, 81, 255, 0); }
 
   .overlay {
     position: absolute;
@@ -154,8 +153,8 @@
     background: #000;
     color: #fff;
     transform: translateX(110%);
-    transition: transform 0.28s ease;
-    box-shadow: -20px 0 40px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
+    box-shadow: -20px 0 40px rgba(0,0,0,0);
     z-index: 35;
     padding: 18px;
     display: flex;
@@ -169,22 +168,22 @@
   .panel-close {
     background: transparent;
     color: #fff;
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0);
+    padding: 4px 10px;
     border-radius: 6px;
     cursor: pointer;
   }
-  .panel-close:focus { outline: 3px solid rgba(255,255,255,0.08); }
+  .panel-close:focus { outline: 3px solid rgba(255,255,255,0); }
 
   .copyb {
     align-self: flex-end;
     background: #6a11cb;
     border: none;
     color: white;
-    padding: 6px 10px;
+    padding: 4px 10px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.5s ease;
   }
   .copyb:hover { background: #8b3fff; }
 
@@ -196,7 +195,7 @@
     padding: 12px;
     border-radius: 6px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
-    font-size: 0.9rem;
+    font-size: 10rem;
     margin: 0;
     max-height: 300px;
     overflow: auto;
@@ -209,13 +208,12 @@
     background: blueviolet;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 0 20px rgba(78,47,128,0.43);
-    transition: all 0.3s ease;
-    z-index: 9999;
+    transition: all 0.5s ease;
   }
   .btnfixed:hover { background: #9b30ff; transform: scale(1.03); }
 
