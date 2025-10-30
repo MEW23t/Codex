@@ -16,7 +16,7 @@
     align-items: center;
     gap: 28px;
     padding: 24px;
-    min-height: 100vh; /* ปรับเป็น 100vh ให้สมเหตุสมผล */
+    min-height: 100vh;
   }
 
   h1 {
@@ -27,7 +27,7 @@
     margin: 0;
   }
 
-  /* Dropdown (top-right) */
+ 
   .dropdown {
     position: fixed;
     top: 20px;
@@ -176,7 +176,7 @@
   }
   .panel-close:focus { outline: 3px solid rgba(255,255,255,0.08); }
 
-  .copy-btn {
+  .copyb {
     align-self: flex-end;
     background: #6a11cb;
     border: none;
@@ -186,8 +186,8 @@
     cursor: pointer;
     transition: background 0.2s ease;
   }
-  .copy-btn:hover { background: #8b3fff; }
-  .copy-btn.copied { background: #4CAF50 !important; }
+  .copyb:hover { background: #8b3fff; }
+  .copyb.copied { background: #4CAF50 !important; }
 
   pre {
     white-space: pre-wrap;
@@ -203,7 +203,7 @@
     overflow: auto;
   }
 
-  .btn-fixed {
+  .btnfixed {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -218,7 +218,7 @@
     transition: all 0.3s ease;
     z-index: 9999;
   }
-  .btn-fixed:hover { background: #9b30ff; transform: scale(1.03); }
+  .btnfixed:hover { background: #9b30ff; transform: scale(1.03); }
 
   @media (max-width:760px) {
     .row { flex-direction: column; }
@@ -229,8 +229,6 @@
 </head>
 <body>
   <h1>Codex-HTML</h1>
-
-  <!-- Dropdown Menu (fixed) -->
   <div class="dropdown" aria-haspopup="true">
     <button class="dropbtn" id="menuBtn" aria-expanded="false" aria-controls="menuList" type="button" onclick="toggleMenu()">Menu</button>
     <div class="dropdown-content" id="menuList" role="menu" aria-hidden="true">
@@ -318,8 +316,6 @@
       </aside>
     </div>
   </div>
-
-  <!-- Row 2 -->
   <div class="row" role="list">
     <div class="card" role="listitem">
       <button class="toggle-btn" type="button" aria-expanded="false">code</button>
@@ -334,7 +330,6 @@
           <strong>example-code</strong>
           <button class="panel-close" type="button" aria-label="Close panel">ปิด</button>
         </div>
-
         <button class="copy-btn" type="button">Copy</button>
         <pre><code class="code-snippet">
 &lt;ul&gt;
@@ -345,7 +340,6 @@
         </code></pre>
       </aside>
     </div>
-
     <div class="card" role="listitem">
       <button class="toggle-btn" type="button" aria-expanded="false">code</button>
       <h3>ข้อความ</h3>
@@ -364,7 +358,7 @@
           <button class="panel-close" type="button" aria-label="Close panel">ปิด</button>
         </div>
 
-        <button class="copy-btn" type="button">Copy</button>
+        <button class="copyb" type="button">Copy</button>
         <pre><code class="code-snippet">
 &lt;h1&gt;หัวข้อหลัก&lt;/h1&gt;
 &lt;p&gt;ย่อหน้านี้เป็นตัวอย่าง&lt;/p&gt;
@@ -377,25 +371,18 @@
       </aside>
     </div>
   </div>
-
   <a href="page2.html"><button class="btn-fixed" type="button" aria-label="Next page">Next</button></a>
-
-<script>
-  // --- Card open/close logic with accessibility updates ---
-  document.querySelectorAll('.card').forEach(card => {
+<script> document.querySelectorAll('.card').forEach(card => {
     const toggle = card.querySelector('.toggle-btn');
     const overlay = card.querySelector('.overlay');
     const panel = card.querySelector('.slide-panel');
     const closeBtn = card.querySelector('.panel-close');
-
-    if (!toggle || !panel) return;
-
-    function openPanel() {
+if (toggle || panel) return;
+function openPanel() {
       card.classList.add('open');
       toggle.setAttribute('aria-expanded', 'true');
       panel.setAttribute('aria-hidden', 'false');
       overlay.setAttribute('aria-hidden', 'false');
-      // focus the close button for keyboard users
       if (closeBtn) closeBtn.focus();
     }
     function closePanel() {
@@ -403,31 +390,24 @@
       toggle.setAttribute('aria-expanded', 'false');
       panel.setAttribute('aria-hidden', 'true');
       overlay.setAttribute('aria-hidden', 'true');
-      // return focus to toggle button for accessibility
       toggle.focus();
     }
-
     toggle.addEventListener('click', () => {
-      card.classList.contains('open') ? closePanel() : openPanel();
-    });
+      card.classList.contains('open') ? closePanel() : openPanel(); });
     overlay.addEventListener('click', closePanel);
     if (closeBtn) closeBtn.addEventListener('click', closePanel);
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && card.classList.contains('open')) closePanel();
-    });
-  });
-
-  // --- Dropdown: toggle and close when clicking outside or Escape ---
+      if (e.key === 'Escape' && card.classList.contains('open')) closePanel();});
+   });
   function toggleMenu() {
     const menu = document.getElementById('menuList');
-    const btn = document.getElementById('menuBtn');
-    if (!menu || !btn) return;
+    const btn = document.getElementById('menu');
+    if (menu || btn) return;
     const isOpen = menu.classList.toggle('show');
-    menu.setAttribute('aria-hidden', (!isOpen).toString());
+    menu.setAttribute('aria-hidden', (isOpen).toString());
     btn.setAttribute('aria-expanded', isOpen.toString());
     if (isOpen) {
-      // focus first link in menu for keyboard users
       const first = menu.querySelector('a');
       if (first) first.focus();
     } else {
@@ -435,12 +415,11 @@
     }
   }
 
-  // close dropdown when clicking outside
   document.addEventListener('click', (e) => {
     const menu = document.getElementById('menuList');
     const btn = document.getElementById('menuBtn');
     if (!menu || !btn) return;
-    if (btn.contains(e.target)) return; // clicking the button handled elsewhere
+    if (btn.contains(e.target)) return;
     if (!menu.contains(e.target)) {
       if (menu.classList.contains('show')) {
         menu.classList.remove('show');
@@ -449,8 +428,6 @@
       }
     }
   });
-
-  // close dropdown on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const menu = document.getElementById('menuList');
@@ -464,55 +441,32 @@
       }
     }
   });
-
-  // --- Copy button: delegation, find .code-snippet within same panel ---
   document.addEventListener('click', async (event) => {
     const btn = event.target.closest('.copy-btn');
     if (!btn) return;
-
-    // find nearest panel container
     const panel = btn.closest('.slide-panel');
     if (!panel) {
-      alert('ไม่พบโค้ดที่จะคัดลอก');
+      alert('ไม่พบ');
       return;
     }
     const codeEl = panel.querySelector('.code-snippet');
     if (!codeEl) {
-      alert('ไม่พบโค้ดที่จะคัดลอก');
+      alert('ไม่พบ');
       return;
     }
     const text = codeEl.innerText.trim();
-
-    // try clipboard API
     try {
       await navigator.clipboard.writeText(text);
       showCopiedState(btn);
       return;
     } catch (err) {
-      // fallback to textarea method
-    }
-
-    try {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.left = '-9999px';
-      ta.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      showCopiedState(btn);
-    } catch (e) {
-      alert('คัดลอกไม่สำเร็จ — ลองเปิดบนเบราว์เซอร์ที่รองรับหรือผ่าน https/localhost');
     }
   });
-
   function showCopiedState(button) {
     const original = button.textContent;
-    button.textContent = 'Copied!';
-    button.classList.add('copied');
-    setTimeout(() => { button.textContent = original; button.classList.remove('copied'); }, 1200);
+    button.textContent = 'Copy';
+    button.classList.add('copy');
+    setTimeout(() => { button.textContent = original; button.classList.remove('copy'); }, 1200);
   }
 </script>
 
