@@ -44,15 +44,15 @@
     border-radius: 6px;
     transition: background 0.3s;
   }
-  .dropbtn:hover { background: #3216b1; }
+  .dropbtn:hover { background: #3416b1; }
   .dropbtn:focus { outline: 3px solid rgba(98,52,184,0.35); }
 
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #222;
+    background-color: #000;
     min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0);
     border-radius: 8px;
     margin-top: 10px;
     overflow: hidden;
@@ -65,7 +65,7 @@
     display: block;
     transition: background 0.15s;
   }
-  .dropdown-content a:hover { background-color: #333; }
+  .dropdown-content a:hover { background-color: #000; }
   .dropdown-content.show { display: block; animation: fadeDown 0.22s ease-out; }
 
   @keyframes fadeDown {
@@ -84,15 +84,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #222;
+    color: #000;
     font-weight: 700;
     font-size: 1.05rem;
     text-align: center;
     flex-direction: column;
     gap: 12px;
   }
-  .hero-box h2 { margin: 0; color: #111; font-size: 1.8rem; font-weight: 800; }
-  .hero-box p { margin: 0; color: #111; font-weight: 600; line-height: 1.45; font-size: 1rem; }
+  .hero-box h2 { margin: 0; color: #000; font-size: 1.8rem; font-weight: 800; }
+  .hero-box p { margin: 0; color: #000; font-weight: 600; line-height: 1.45; font-size: 1rem; }
 
   .row {
     width: 90vw;
@@ -136,7 +136,7 @@
   .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s;
@@ -151,7 +151,7 @@
     height: 100%;
     width: 320px;
     max-width: 90%;
-    background: #111;
+    background: #000;
     color: #fff;
     transform: translateX(110%);
     transition: transform 0.28s ease;
@@ -187,13 +187,12 @@
     transition: background 0.2s ease;
   }
   .copyb:hover { background: #8b3fff; }
-  .copyb.copied { background: #4CAF50 !important; }
 
   pre {
     white-space: pre-wrap;
     word-break: break-word;
-    background: #0b0b0b;
-    color: #e6e6e6;
+    background: #000000;
+    color: #ffffff;
     padding: 12px;
     border-radius: 6px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
@@ -238,9 +237,6 @@
       <a href="page5.html" role="menuitem">5</a>
       <a href="page6.html" role="menuitem">6</a>
       <a href="page7.html" role="menuitem">7</a>
-      <a href="page8.html" role="menuitem">8</a>
-      <a href="page9.html" role="menuitem">9</a>
-      <a href="page10.html" role="menuitem">10</a>
     </div>
   </div>
 
@@ -341,7 +337,7 @@
     <div class="card" role="listitem">
       <button class="toggle-btn" type="button" aria-expanded="false">code</button>
       <h3>ข้อความ</h3>
-      <p>&lt;h1&gt;-&lt;h6&gt; : หัวข้อใหญ่→เล็ก</p>
+      <p>&lt;h1&gt;-&lt;h6&gt; : หัวข้อใหญ่-เล็ก</p>
       <p>&lt;p&gt; : ย่อหน้า</p>
       <p>&lt;br&gt; : ขึ้นบรรทัดใหม่ (self-closing)</p>
       <p>&lt;strong&gt; : ตัวหนา (เน้นความสำคัญ)</p>
